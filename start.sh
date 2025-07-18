@@ -3,11 +3,6 @@
 # Define o diretório de instalação como /root
 INSTALL_DIR="/root/brln-os"
 
-# Function to display error messages
-error() {
-    echo "ERRO: $1" >&2
-}
-
 # Clone repository if it doesn't exist
 if [[ ! -d "$INSTALL_DIR" ]]; then
     echo "Clonando repositório BRLN-OS..."

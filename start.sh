@@ -22,7 +22,7 @@ else
     }
     
     # Verificar se estamos no diretório correto
-    if [[ ! -d "container" ]]; then
+    if [[ ! -d "$INSTALL_DIR/container" ]]; then
         error "Diretório 'container' não encontrado!"
         error "Execute este script no diretório raiz do projeto brln-os"
         echo ""

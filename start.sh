@@ -14,25 +14,13 @@ if [[ ! -d "$INSTALL_DIR" ]]; then
         exit 1
     fi
 else
-    echo "Repositório já existe em $INSTALL_DIR"
-    # Change to the installation directory
-    cd "$INSTALL_DIR" || {
-        error "Não foi possível acessar o diretório $INSTALL_DIR"
-        exit 1
-    }
-    
-    # Verificar se estamos no diretório correto
-    if [[ ! -d "$INSTALL_DIR/container" ]]; then
-        error "Diretório 'container' não encontrado!"
-        error "Execute este script no diretório raiz do projeto brln-os"
-        echo ""
-        echo "Exemplo:"
-        echo "  git clone https://github.com/pagcoinbr/brln-os.git"
-        echo "  cd brln-os"
-        echo "  ./run.sh"
+    sudo rm -rf /root/brln-os
+    echo "Clonando repositório BRLN-OS..."
+    if git clone https://github.com/pagcoinbr/brln-os.git "$INSTALL_DIR" 2>&1; then
+        echo "Repositório clonado com sucesso."
+        sudo -u root bash /root/brln-os/run.sh
+    else
+        echo "Erro ao clonar o repositório BRLN-OS."
         exit 1
     fi
-    
-    # Execute the main script
-    sudo -u root bash /root/brln-os/run.sh
 fi

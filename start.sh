@@ -12,3 +12,15 @@ if [[ ! -d "$INSTALL_DIR" ]]; then
     exit 1
   fi
 fi
+
+# Verificar se estamos no diretório correto
+if [[ ! -d "container" ]]; then
+    error "Diretório 'container' não encontrado!"
+    error "Execute este script no diretório raiz do projeto brlnfullauto"
+    echo ""
+    echo "Exemplo:"
+    echo "  git clone https://github.com/pagcoinbr/brln-os.git"
+    echo "  cd brln-os"
+    echo "  ./run.sh"
+    exit 1
+fi

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+cd /root
+
+if [[ $? != 0 ]] then
+echo "Login with root user using - sudo su"
+else
+echo " "
+fi
+
 # Define o diretório de instalação como /root
 INSTALL_DIR="/root/brln-os"
 

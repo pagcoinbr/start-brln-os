@@ -12,10 +12,11 @@ fi
 INSTALL_DIR="/root/brln-os"
 
 # Remove diretório existente se houver
-#if [[ -d "$INSTALL_DIR" ]]; then
+if [[ -d "$INSTALL_DIR" ]]; then
 #    echo "Removendo instalação anterior..."
+echo "Você já baixou o BRLN-OS, acesse - cd /root/brln-os"
 #    rm -rf "$INSTALL_DIR"
-#fi
+fi
 
 # Clone repository
 echo "Clonando repositório BRLN-OS..."
